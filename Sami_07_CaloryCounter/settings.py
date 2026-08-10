@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'Sami_07_CaloryCounter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-import dj_database_url
+
 
 if os.environ.get('DATABASE_URL'):
     DATABASES = {
