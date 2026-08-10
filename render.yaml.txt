@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: sami-07-calory-counter
+    runtime: python
+    plan: free
+
+    buildCommand: "./build.sh"
+
+    startCommand: "gunicorn Sami_07_CaloryCounter.wsgi:application"
+
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+
+      - key: DEBUG
+        value: "False"
+
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sami-07-calory-counter-db
+          property: connectionString
+
+databases:
+  - name: sami-07-calory-counter-db
+    plan: free
